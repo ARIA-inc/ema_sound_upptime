@@ -1,4 +1,4 @@
-name: Slack Notification
+name: Upptime Notifications
 
 on:
   push:
@@ -10,25 +10,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
 
-      - name: Check Down Status
-        id: check
+      - name: Detect changed history files
+        id: changes
         run: |
-          if grep -q '"status":"down"' .history/*.json; then
-            echo "down=true" >> $GITHUB_OUTPUT
-          fi
+          FILES=$(git diff --name-only HEAD^ HEAD | grep "^.history/" || true)
+          echo "files=$FILES" >> $GITHUB_OUTPUT
 
-      - name: Slack Notify 1
-        if: steps.check.outputs.down == 'true'
+      - name: Process incidents
+        if: steps.changes.outputs.files != ''
         run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Service DOWN"}' \
-          ${{ secrets.SLACK_WEBHOOK_1 }}
+          for file in ${{ steps.changes.outputs.files }}
+          do
+            STATUS=$(jq -r '.status' $file)
+            NAME=$(jq -r '.url' $file)
 
-      - name: Slack Notify 2
-        if: steps.check.outputs.down == 'true'
-        run: |
-          curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Service DOWN"}' \
-          ${{ secrets.SLACK_WEBHOOK_2 }}
+            if [ "$STATUS" = "down" ]; then
+              MESSAGE="🚨 DOWN: $NAME"
+            else
+              MESSAGE="✅ RECOVERED: $NAME"
+            fi
+
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\"$MESSAGE\"}" \
+              ${{ secrets.SLACK_WEBHOOK }}
+          done
