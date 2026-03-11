@@ -3,7 +3,7 @@ name: Upptime Notifications
 on:
   push:
     paths:
-      - "history/*.json"
+      - "history/*.yml"
 
 jobs:
   notify:
