@@ -10,14 +10,14 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Slack Workspace A
+      - name: Notify Slack Workspace 1
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data '{"text":"Upptime alert"}' \
-          ${{ secrets.SLACK_WEBHOOK_A }}
+          ${{ secrets.SLACK_WEBHOOK_1 }}
 
-      - name: Notify Slack Workspace B
+      - name: Notify Slack Workspace 2
         run: |
           curl -X POST -H 'Content-type: application/json' \
           --data '{"text":"Upptime alert"}' \
-          ${{ secrets.SLACK_WEBHOOK_B }}
+          ${{ secrets.SLACK_WEBHOOK_2 }}
