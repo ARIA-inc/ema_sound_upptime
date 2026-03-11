@@ -1,11 +1,23 @@
-- name: Notify Slack 1
-  run: |
-    curl -X POST -H 'Content-type: application/json' \
-    --data '{"text":"Upptime Alert"}' \
-    ${{ secrets.SLACK_WEBHOOK_1 }}
+name: Slack Notifications
 
-- name: Notify Slack 2
-  run: |
-    curl -X POST -H 'Content-type: application/json' \
-    --data '{"text":"Upptime Alert"}' \
-    ${{ secrets.SLACK_WEBHOOK_2 }}
+on:
+  workflow_run:
+    workflows: ["Uptime CI"]
+    types:
+      - completed
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack Workspace A
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"Upptime alert"}' \
+          ${{ secrets.SLACK_WEBHOOK_A }}
+
+      - name: Notify Slack Workspace B
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"Upptime alert"}' \
+          ${{ secrets.SLACK_WEBHOOK_B }}
