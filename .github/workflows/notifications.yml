@@ -1,23 +1,34 @@
-name: Slack Notifications
+name: Slack Notification
 
 on:
-  workflow_run:
-    workflows: ["Uptime CI"]
-    types:
-      - completed
+  push:
+    paths:
+      - ".history/**"
 
 jobs:
   notify:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Notify Slack Workspace 1
+      - uses: actions/checkout@v4
+
+      - name: Check Down Status
+        id: check
+        run: |
+          if grep -q '"status":"down"' .history/*.json; then
+            echo "down=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Slack Notify 1
+        if: steps.check.outputs.down == 'true'
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Upptime alert"}' \
+          --data '{"text":"Service DOWN"}' \
           ${{ secrets.SLACK_WEBHOOK_1 }}
 
-      - name: Notify Slack Workspace 2
+      - name: Slack Notify 2
+        if: steps.check.outputs.down == 'true'
         run: |
           curl -X POST -H 'Content-type: application/json' \
-          --data '{"text":"Upptime alert"}' \
+          --data '{"text":"Service DOWN"}' \
           ${{ secrets.SLACK_WEBHOOK_2 }}
