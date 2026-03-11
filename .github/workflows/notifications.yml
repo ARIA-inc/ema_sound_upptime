@@ -3,7 +3,7 @@ name: Upptime Notifications
 on:
   push:
     paths:
-      - "history/**"
+      - "history/*.json"
 
 jobs:
   notify:
@@ -12,49 +12,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Detect changed history files
-        id: changes
+      - name: Check services
         run: |
-          FILES=$(git diff --name-only HEAD^ HEAD | grep "^.history/" || true)
-          echo "files=$FILES" >> $GITHUB_OUTPUT
-
-      - name: Process incidents
-        if: steps.changes.outputs.files != ''
-        run: |
-          for file in ${{ steps.changes.outputs.files }}
+          for file in history/*.json
           do
-            STATUS=$(jq -r '.status' $file)
-            NAME=$(jq -r '.url' $file)
+            STATUS=$(jq -r '.status' "$file")
+            URL=$(jq -r '.url' "$file")
 
             if [ "$STATUS" = "down" ]; then
-              MESSAGE="🚨 DOWN: $NAME"
+              MESSAGE="🚨 DOWN: $URL"
             else
-              MESSAGE="✅ RECOVERED: $NAME"
+              MESSAGE="✅ RECOVERED: $URL"
             fi
 
-            curl -X POST -H 'Content-type: application/json' \
-              --data "{\"text\":\"$MESSAGE\"}" \
-              ${{ secrets.SLACK_WEBHOOK_1 }}
-          done
+            echo "Sending notification: $MESSAGE"
 
-      - name: Process incidents
-        if: steps.changes.outputs.files != ''
-        run: |
-          for file in ${{ steps.changes.outputs.files }}
-          do
-            STATUS=$(jq -r '.status' $file)
-            NAME=$(jq -r '.url' $file)
+            # Slack 1
+            curl -s -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\"$MESSAGE\"}" \
+            ${{ secrets.SLACK_WEBHOOK_1 }}
 
-            if [ "$STATUS" = "down" ]; then
-              MESSAGE="🚨 DOWN: $NAME"
-            else
-              MESSAGE="✅ RECOVERED: $NAME"
-            fi
+            # Slack 2
+            curl -s -X POST -H 'Content-type: application/json' \
+            --data "{\"text\":\"$MESSAGE\"}" \
+            ${{ secrets.SLACK_WEBHOOK_2 }}
 
-            curl -X POST -H 'Content-type: application/json' \
-              --data "{\"text\":\"$MESSAGE\"}" \
-              ${{ secrets.SLACK_WEBHOOK_2 }}
           done
