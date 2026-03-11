@@ -10,11 +10,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 632,
-    "timeDay": 522,
-    "timeWeek": 658,
-    "timeMonth": 632,
-    "timeYear": 632,
+    "time": 634,
+    "timeDay": 645,
+    "timeWeek": 661,
+    "timeMonth": 634,
+    "timeYear": 634,
     "dailyMinutesDown": {}
   },
   {
@@ -28,11 +28,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 634,
-    "timeDay": 529,
-    "timeWeek": 662,
-    "timeMonth": 634,
-    "timeYear": 634,
+    "time": 646,
+    "timeDay": 708,
+    "timeWeek": 689,
+    "timeMonth": 646,
+    "timeYear": 646,
     "dailyMinutesDown": {}
   },
   {
@@ -46,11 +46,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 633,
-    "timeDay": 598,
-    "timeWeek": 664,
-    "timeMonth": 633,
-    "timeYear": 633,
+    "time": 630,
+    "timeDay": 617,
+    "timeWeek": 648,
+    "timeMonth": 630,
+    "timeYear": 630,
     "dailyMinutesDown": {}
   },
   {
@@ -64,11 +64,31 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 600,
-    "timeDay": 524,
-    "timeWeek": 614,
-    "timeMonth": 600,
-    "timeYear": 600,
+    "time": 596,
+    "timeDay": 580,
+    "timeWeek": 607,
+    "timeMonth": 596,
+    "timeYear": 596,
     "dailyMinutesDown": {}
+  },
+  {
+    "name": "Upptime Test",
+    "url": "https://httpbin.org/status/503",
+    "icon": "https://icons.duckduckgo.com/ip3/httpbin.org.ico",
+    "slug": "upptime-test",
+    "status": "down",
+    "uptime": "18.65%",
+    "uptimeDay": "18.65%",
+    "uptimeWeek": "18.65%",
+    "uptimeMonth": "18.65%",
+    "uptimeYear": "18.65%",
+    "time": 556,
+    "timeDay": 556,
+    "timeWeek": 556,
+    "timeMonth": 556,
+    "timeYear": 556,
+    "dailyMinutesDown": {
+      "2026-03-11": 0
+    }
   }
 ]
