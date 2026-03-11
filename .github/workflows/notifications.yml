@@ -3,7 +3,7 @@ name: Upptime Notifications
 on:
   push:
     paths:
-      - ".history/**"
+      - "history/**"
 
 jobs:
   notify:
@@ -38,4 +38,23 @@ jobs:
             curl -X POST -H 'Content-type: application/json' \
               --data "{\"text\":\"$MESSAGE\"}" \
               ${{ secrets.SLACK_WEBHOOK_1 }}
+          done
+
+      - name: Process incidents
+        if: steps.changes.outputs.files != ''
+        run: |
+          for file in ${{ steps.changes.outputs.files }}
+          do
+            STATUS=$(jq -r '.status' $file)
+            NAME=$(jq -r '.url' $file)
+
+            if [ "$STATUS" = "down" ]; then
+              MESSAGE="🚨 DOWN: $NAME"
+            else
+              MESSAGE="✅ RECOVERED: $NAME"
+            fi
+
+            curl -X POST -H 'Content-type: application/json' \
+              --data "{\"text\":\"$MESSAGE\"}" \
+              ${{ secrets.SLACK_WEBHOOK_2 }}
           done
