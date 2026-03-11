@@ -1,0 +1,11 @@
+- name: Notify Slack 1
+  run: |
+    curl -X POST -H 'Content-type: application/json' \
+    --data '{"text":"Upptime Alert"}' \
+    ${{ secrets.SLACK_WEBHOOK_1 }}
+
+- name: Notify Slack 2
+  run: |
+    curl -X POST -H 'Content-type: application/json' \
+    --data '{"text":"Upptime Alert"}' \
+    ${{ secrets.SLACK_WEBHOOK_2 }}
