@@ -1,7 +1,7 @@
 url: https://httpbin.org/status/503
 status: down
 code: 503
-responseTime: 124
-lastUpdated: 2026-03-14T23:12:06.609Z
+responseTime: 194
+lastUpdated: 2026-03-15T23:13:19.998Z
 startTime: 2026-03-11T00:58:12.544Z
 generator: Upptime <https://github.com/upptime/upptime>
