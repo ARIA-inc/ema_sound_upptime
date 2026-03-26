@@ -12,7 +12,7 @@ sites:
   - name: ema_sound_management_stg
     url: https://admin-test.e-ma-sound.com/
   - name: Test Down
-    url: https://httpbin.org/status/200
+    url: https://httpbin.org/status/503
 
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
