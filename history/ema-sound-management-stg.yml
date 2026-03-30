@@ -1,7 +1,7 @@
 url: https://admin-test.e-ma-sound.com/
-status: up
-code: 200
-responseTime: 529
-lastUpdated: 2026-03-29T23:14:18.808Z
+status: down
+code: 502
+responseTime: 886
+lastUpdated: 2026-03-30T02:47:38.939Z
 startTime: 2026-03-02T10:25:02.554Z
 generator: Upptime <https://github.com/upptime/upptime>
