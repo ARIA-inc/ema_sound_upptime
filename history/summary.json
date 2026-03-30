@@ -4,36 +4,40 @@
     "url": "https://station.e-ma-sound.com/",
     "icon": "https://icons.duckduckgo.com/ip3/station.e-ma-sound.com.ico",
     "slug": "ema-sound-web-prd",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 697,
-    "timeDay": 515,
-    "timeWeek": 700,
-    "timeMonth": 697,
-    "timeYear": 697,
-    "dailyMinutesDown": {}
+    "time": 699,
+    "timeDay": 660,
+    "timeWeek": 709,
+    "timeMonth": 699,
+    "timeYear": 699,
+    "dailyMinutesDown": {
+      "2026-03-30": 0
+    }
   },
   {
     "name": "ema_sound_management_prd",
     "url": "https://admin.e-ma-sound.com/",
     "icon": "https://icons.duckduckgo.com/ip3/admin.e-ma-sound.com.ico",
     "slug": "ema-sound-management-prd",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 709,
-    "timeDay": 594,
-    "timeWeek": 745,
-    "timeMonth": 709,
-    "timeYear": 709,
-    "dailyMinutesDown": {}
+    "time": 711,
+    "timeDay": 702,
+    "timeWeek": 751,
+    "timeMonth": 711,
+    "timeYear": 711,
+    "dailyMinutesDown": {
+      "2026-03-30": 0
+    }
   },
   {
     "name": "ema_sound_web_stg",
@@ -41,18 +45,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/station-test.e-ma-sound.com.ico",
     "slug": "ema-sound-web-stg",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "99.83%",
+    "uptimeDay": "95.31%",
+    "uptimeWeek": "99.33%",
+    "uptimeMonth": "99.83%",
+    "uptimeYear": "99.83%",
     "time": 675,
     "timeDay": 763,
     "timeWeek": 727,
     "timeMonth": 675,
     "timeYear": 675,
     "dailyMinutesDown": {
-      "2026-03-30": 0
+      "2026-03-30": 68
     }
   },
   {
@@ -61,17 +65,19 @@
     "icon": "https://icons.duckduckgo.com/ip3/admin-test.e-ma-sound.com.ico",
     "slug": "ema-sound-management-stg",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "99.83%",
+    "uptimeDay": "95.31%",
+    "uptimeWeek": "99.33%",
+    "uptimeMonth": "99.83%",
+    "uptimeYear": "99.83%",
     "time": 662,
     "timeDay": 708,
     "timeWeek": 685,
     "timeMonth": 662,
     "timeYear": 662,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-03-30": 68
+    }
   },
   {
     "name": "Test Down",
@@ -79,11 +85,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/httpbin.org.ico",
     "slug": "test-down",
     "status": "up",
-    "uptime": "21.47%",
+    "uptime": "21.66%",
     "uptimeDay": "100.00%",
-    "uptimeWeek": "58.25%",
-    "uptimeMonth": "21.47%",
-    "uptimeYear": "21.47%",
+    "uptimeWeek": "58.91%",
+    "uptimeMonth": "21.66%",
+    "uptimeYear": "21.66%",
     "time": 259,
     "timeDay": 447,
     "timeWeek": 285,
